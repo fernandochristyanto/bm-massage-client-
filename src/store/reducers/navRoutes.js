@@ -12,6 +12,11 @@ const initialState = {
         to: 'membercontrol'
     },
     {
+        name: 'Ban Panel',
+        id: 'banpanel',
+        to: 'banpanel'
+    },
+    {
         name: 'Reporting',
         id: 'reporting',
         to: 'reporting'

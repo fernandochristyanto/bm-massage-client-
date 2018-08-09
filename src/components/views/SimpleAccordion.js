@@ -6,7 +6,10 @@ class SimpleAccordion extends Component {
         super(props);
 
         this.state = {
-            datas: []
+            datas: [],
+            buttonText: undefined,
+            buttonHandler: undefined,
+            buttonClass: undefined
         }
     }
 
@@ -16,10 +19,11 @@ class SimpleAccordion extends Component {
         const {datas} = this.state;
         const datasClone = datas.map((data, i) => {
             return {
+                ...data,
                 id: data.id,
                 title: data.title,
                 content: [...data.content],
-                isActive: i === index && !data.isActive
+                isActive: i === index && !data.isActive,
             }
         });
         this.setState({...this.state, datas: datasClone});
@@ -29,6 +33,7 @@ class SimpleAccordion extends Component {
         const {datas} = this.state;
         const datasClone = datas.map(data => {
             return {
+                ...data,
                 id: data.id,
                 title: data.title,
                 content: [...data.content],
@@ -40,7 +45,7 @@ class SimpleAccordion extends Component {
 
     mapAccordionItems = () => {
         const { datas } = this.state;
-        
+
         return datas.map((data, i) => {
             const titleClass = data.isActive ? "title active" : "title";
             const contentClass = data.isActive ? "content active" : "content";
@@ -64,6 +69,9 @@ class SimpleAccordion extends Component {
                                 )
                             })
                         }
+                        { ( data.buttonText && data.buttonHandler) && 
+                            <button className={`${data.buttonClass}`} onClick={data.buttonHandler}>{data.buttonText}</button>
+                        }
                     </div>
                 </div>
             )
@@ -80,16 +88,16 @@ class SimpleAccordion extends Component {
 
     componentDidMount() {
         const { datas } = this.props;
-        
         const datasForState = datas.map(data => {
             let newData = {
+                ...data,
                 id: data.id,
                 title: data.title,
                 content: [...data.content]
             }
             return newData;
         });
-        debugger;
+
         this.setState({ ...this.state, datas: datasForState });
     }
 }
