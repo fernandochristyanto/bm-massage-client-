@@ -89,6 +89,7 @@ class SimpleAccordion extends Component {
             }
             return newData;
         });
+        debugger;
         this.setState({ ...this.state, datas: datasForState });
     }
 }
