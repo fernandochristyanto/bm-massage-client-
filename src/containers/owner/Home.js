@@ -65,7 +65,7 @@ class Home extends Component {
                             Address: massagePlace.address
                         }}
                         onButtonClick={() => this.redirectToPlaceDetail(massagePlace._id)}
-                        buttonText="View city detail"
+                        buttonText="View place detail"
                     />
                 ))
                 }

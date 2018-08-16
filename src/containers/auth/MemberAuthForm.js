@@ -38,6 +38,7 @@ class MemberAuthForm extends Component {
                     username={username}
                     password={password}
                     handleFormSubmit={this.handleFormSubmit}
+                    isMember={true}
                 />
             </React.Fragment>
         )

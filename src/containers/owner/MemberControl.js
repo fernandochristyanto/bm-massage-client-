@@ -6,20 +6,6 @@ import { convertZone, formatDate } from '../../services/date';
 
 const $ = require('jquery')
 
-// const BanRequestsPanel = props => {
-
-//     return (
-//         <React.Fragment>
-//             {mapBanRequestsDataToAccordions()}
-//         </React.Fragment>
-//     )
-// }
-
-// BanRequestsPanel.propTypes = {
-//     banRequests: PropTypes.array.isRequired
-// }
-
-
 class MemberControl extends Component {
     constructor(props) {
         super(props);
@@ -43,7 +29,10 @@ class MemberControl extends Component {
                 ],
                 buttonText: 'Ban Member',
                 buttonHandler: this.showBanConfirmationPanel.bind(this, banRequest._id),
-                buttonClass: 'button negative ui'
+                buttonClass: 'button negative ui',
+                buttonText2: 'Decline Ban Request',
+                buttonHandler2: this.declineBanRequest.bind(this, banRequest._id),
+                buttonClass2: 'button  ui'
             }
         });
     }
@@ -56,6 +45,18 @@ class MemberControl extends Component {
         if (selectedBanRequest.length > 0) { //Filter returns an array so...
             this.setState({ ...this.state, selectedBanRequest: selectedBanRequest[0] })
         }
+    }
+
+    declineBanRequest = (banId) => {
+        const { banRequests } = this.state;
+
+        // sets selected ban request
+        const pendingRequests = banRequests.filter(banRequest => banRequest._id !== banId);
+        apiCall('post', `/api/ban/${banId}/revokeban`)
+            .then(res => {
+                this.setState({...this.state, banRequests: pendingRequests});
+            })
+            .catch(err => err);
     }
 
     banHandler = (banId) => {

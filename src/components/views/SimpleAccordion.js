@@ -72,6 +72,9 @@ class SimpleAccordion extends Component {
                         { ( data.buttonText && data.buttonHandler) && 
                             <button className={`${data.buttonClass}`} onClick={data.buttonHandler}>{data.buttonText}</button>
                         }
+                        { ( data.buttonText2 && data.buttonHandler2) && 
+                            <button className={`${data.buttonClass2}`} onClick={data.buttonHandler2}>{data.buttonText2}</button>
+                        }
                     </div>
                 </div>
             )

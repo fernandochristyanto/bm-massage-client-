@@ -12,11 +12,6 @@ const initialState = {
         to: 'membercontrol'
     },
     {
-        name: 'Ban Panel',
-        id: 'banpanel',
-        to: 'banpanel'
-    },
-    {
         name: 'Reporting',
         id: 'reporting',
         to: 'reporting'
@@ -40,11 +35,6 @@ const initialState = {
         name: 'Massage Place',
         id: 'massage_place',
         to: 'massageplace'
-    },
-    {
-        name: 'Order Log',
-        id: 'order_log',
-        to: 'orderlog'
     }]
 }
 
