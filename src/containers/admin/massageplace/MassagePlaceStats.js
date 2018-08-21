@@ -151,7 +151,7 @@ class MassagePlaceStats extends Component {
                   {this.fillDdlMassageType()}
                 </select>
               </div>
-              <div className="field" style={{marginTop: '20px'}}>
+              <div className="field" style={{ marginTop: '20px' }}>
                 <label htmlFor="massagename">Massage Name</label>
                 <input type="text" value={selectedMassage.massageName} />
               </div>
@@ -160,9 +160,9 @@ class MassagePlaceStats extends Component {
                 <input type="text" value={selectedMassage.capacity} />
               </div>
               <div className="field">
-              <label htmlFor="price">Price</label>
-              <input type="number" value={selectedMassage.price} />
-            </div>
+                <label htmlFor="price">Price</label>
+                <input type="number" value={selectedMassage.price} />
+              </div>
               <input type="button" value="Create" className="ui button green" />
               <input type="button" value="Cancel" className="ui button" onClick={this.removeSelectedMassagePlace} />
             </form>
@@ -171,7 +171,6 @@ class MassagePlaceStats extends Component {
       </div>
     )
   }
-
 
   componentDidMount() {
     const { currentUser } = this.props;
